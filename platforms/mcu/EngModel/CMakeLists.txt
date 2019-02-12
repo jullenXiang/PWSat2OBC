@@ -1,9 +1,9 @@
 set(SOURCES
-    
+    init.cpp
 )
 
-add_library(platform INTERFACE ${SOURCES})
+add_library(platform STATIC ${SOURCES})
 
-target_link_libraries(platform INTERFACE base)
+target_link_libraries(platform PUBLIC base emlib)
 
-target_include_directories (platform INTERFACE ${CMAKE_CURRENT_LIST_DIR}/Include)
+target_include_directories (platform PUBLIC ${CMAKE_CURRENT_LIST_DIR}/Include)

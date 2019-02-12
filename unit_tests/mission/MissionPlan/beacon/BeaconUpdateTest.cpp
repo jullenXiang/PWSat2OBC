@@ -15,6 +15,8 @@ using testing::Eq;
 using namespace std::chrono_literals;
 namespace
 {
+    const OSTaskHandle Task = reinterpret_cast<OSTaskHandle>(1);
+
     class BeaconUpdateTest : public testing::Test
     {
       protected:
@@ -25,8 +27,6 @@ namespace
         OSReset osReset{InstallProxy(&os)};
         mission::BeaconUpdate beacon{0};
         mission::ActionDescriptor<SystemState> action{beacon.BuildAction()};
-
-        static constexpr OSTaskHandle Task = reinterpret_cast<OSTaskHandle>(1);
     };
 
     BeaconUpdateTest::BeaconUpdateTest()
